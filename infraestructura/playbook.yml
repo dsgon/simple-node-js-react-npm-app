@@ -1,6 +1,5 @@
 - hosts: frontend
   become: yes
-  sudo: yes
 
   tasks:
     # Instalar apache
