@@ -24,6 +24,9 @@
         backrefs: yes
 
     # Reiniciar apache
+    - host: apache
+      sudo: yes
+      tasks:
         - name: restart apache2
           yum: name=apache2 update_cache=yes state=latest
 
