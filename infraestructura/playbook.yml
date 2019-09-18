@@ -1,16 +1,14 @@
 - hosts: frontend
   become: yes
+  sudo: yes
 
   tasks:
     # Instalar apache
-    - host: apache
-      sudo: yes
-      tasks:
-        - name: install apache2
-          yum: name=apache2 update_cache=yes state=latest
+    - name: install apache2
+      yum: name=apache2 update_cache=yes state=latest
     # Iniciar apache
-        - name: start apache2
-          yum: name=apache2 update_cache=yes state=latest
+    - name: start apache2
+      yum: name=apache2 update_cache=yes state=latest
 
     - name: Asegurar que selinux este deshabilitado  # Necesario para cambiar el puerto de apache
       selinux: state=permissive policy=targeted
@@ -24,11 +22,8 @@
         backrefs: yes
 
     # Reiniciar apache
-    - host: apache
-      sudo: yes
-      tasks:
-        - name: restart apache2
-          yum: name=apache2 update_cache=yes state=latest
+    - name: restart apache2
+      yum: name=apache2 update_cache=yes state=latest
 
 - hosts: desplegar
   become: yes
