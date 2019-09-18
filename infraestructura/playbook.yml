@@ -22,7 +22,7 @@
 
     # Reiniciar apache
     - name: restart apache
-      systemd: name=httpd state=restart enabled=yes
+      systemd: name=httpd state=restarted enabled=yes
 
 - hosts: desplegar
   become: yes
