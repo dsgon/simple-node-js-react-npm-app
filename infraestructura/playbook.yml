@@ -29,3 +29,9 @@
 
   tasks:
     # Copiar los archivos
+    -name: copy files
+    copy:
+      src: build/
+      dest: /var/www/html/
+      directory_mode: yes
+      
