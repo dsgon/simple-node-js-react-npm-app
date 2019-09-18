@@ -24,6 +24,8 @@
         backrefs: yes
 
     # Reiniciar apache
+        - name: restart apache2
+          yum: name=apache2 update_cache=yes state=latest
 
 - hosts: desplegar
   become: yes
