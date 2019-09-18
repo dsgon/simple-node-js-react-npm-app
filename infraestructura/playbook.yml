@@ -3,8 +3,14 @@
 
   tasks:
     # Instalar apache
-
+    - host: apache
+      sudo: yes
+      tasks:
+        - name: install apache2
+          yum: name=apache2 update_cache=yes state=latest
     # Iniciar apache
+        - name: start apache2
+          yum: name=apache2 update_cache=yes state=latest
 
     - name: Asegurar que selinux este deshabilitado  # Necesario para cambiar el puerto de apache
       selinux: state=permissive policy=targeted
